@@ -59,7 +59,7 @@ def registerNewDomain():
         )
 
 
-@ui.route('/api/domain/limits', methods=['PUT'])
+@ui.route('/api/v1/domain/limits', methods=['PUT'])
 def setDomainLimits():
     """ Set domain limits
     """
@@ -91,7 +91,7 @@ def setDomainLimits():
 
 
 
-@ui.route('/api/domain/manager', methods=['PUT'])
+@ui.route('/api/v1/domain/manager', methods=['PUT'])
 def setManager():
     """ Make a user manager of a domain
     """
@@ -118,7 +118,7 @@ def setManager():
 
 
 
-@ui.route('/api/domain/<path:domain_name>', methods=['DELETE'])
+@ui.route('/api/v1/domain/<path:domain_name>', methods=['DELETE'])
 def deleteDomain(domain_name):
     """delete domain_name"""
     domain = models.Domain.query.get(domain_name)
@@ -137,7 +137,7 @@ def deleteDomain(domain_name):
 
 
 
-@ui.route('/api/user', methods=['POST'])
+@ui.route('/api/v1/user', methods=['POST'])
 def newUser():
     """ Create a user
     """
@@ -183,7 +183,7 @@ def newUser():
         )
 
 
-@ui.route('/api/user/<path:user_email>', methods=['DELETE'])
+@ui.route('/api/v1/user/<path:user_email>', methods=['DELETE'])
 def deleteUser(user_email):
     """delete user"""
     user = models.User.query.get(user_email)
@@ -201,7 +201,7 @@ def deleteUser(user_email):
         )
 
 
-@ui.route('/api/user/password', methods=['PUT'])
+@ui.route('/api/v1/user/password', methods=['PUT'])
 def changePassword():
     """ Change the password of an user
     """

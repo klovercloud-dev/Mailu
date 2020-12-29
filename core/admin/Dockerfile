@@ -41,6 +41,8 @@ EXPOSE 80/tcp
 VOLUME ["/data","/dkim"]
 ENV FLASK_APP mailu
 
+RUN chmod +x /start.py
+
 CMD /start.py
 
 HEALTHCHECK CMD curl -f -L http://localhost/ui/login?next=ui.index || exit 1
