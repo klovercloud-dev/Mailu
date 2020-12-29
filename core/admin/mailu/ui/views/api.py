@@ -148,6 +148,7 @@ def newUser():
     username = req_data['username']
     password = req_data['password']
     displayed_name = req_data['displayedName']
+    quota_bytes = req_data['quotaBytes']
 
     if hash_scheme is None:
         hash_scheme = app.config['PASSWORD_SCHEME']
@@ -164,7 +165,8 @@ def newUser():
             localpart=username,
             domain=domain,
             global_admin=False,
-            displayed_name=displayed_name
+            displayed_name=displayed_name,
+            quota_bytes=quota_bytes
         )
         user.set_password(password, hash_scheme=hash_scheme)
         db.session.add(user)
